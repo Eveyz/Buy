@@ -46,3 +46,9 @@
 .form-size {
   height: 48px;
 }
+
+.navbar-button:hover {
+  cursor: pointer;
+  padding: 0px 8px 7px 8px;
+  border-bottom: 3px solid #02CCBA;
+}

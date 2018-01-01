@@ -9,24 +9,24 @@ const Event = require('../models/event');
 
 /* Get Events */
 router.get('/', (req, res) => {
-    Book.find((err, events) => {
-        if(err) {
-            throw err;
-        }
-        res.json(events);
-    })
+  Book.find((err, events) => {
+    if(err) {
+        throw err;
+    }
+    res.json(events);
+  })
 });
 
 /* Create Events */
 router.post('/', (req, res) => {
-    var body = req.body;
+  var body = req.body;
 
-    Book.create(body, function(err, events) {
-        if(err) {
-            throw err;
-        }
-        res.json(events);
-    })
+  Book.create(body, function(err, events) {
+    if(err) {
+      throw err;
+    }
+    res.json(events);
+  })
 });
 
 /* Delete Book */

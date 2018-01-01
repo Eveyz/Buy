@@ -6,9 +6,11 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const Book = require('../models/book');
+import authenticate from '../src/middlewares/authenticate';
 
 /* Get Books */
-router.get('/', (req, res) => {
+router.get('/', authenticate, (req, res) => {
+  console.log(req.currentUser);
 	Book.find((err, books) => {
 		if(err) {
 			throw err;
@@ -18,9 +20,9 @@ router.get('/', (req, res) => {
 });
 
 /* Create Books */
-router.post('/', (req, res) => {
+router.post('/', authenticate, (req, res) => {
 	var body = req.body;
-
+  console.log(req.currentUser);
 	Book.create(body, function(err, books) {
 		if(err) {
 			throw err;

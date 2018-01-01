@@ -5,7 +5,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="grey-background">
-        <Dashboard />
+        {/* <Dashboard /> */}
         <div className="container">
           <br/>
           <h3>热门活动</h3>

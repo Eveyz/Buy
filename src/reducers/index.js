@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 import SearchReducer from './header/reducer_search.js';
 import BooksReducer from './books/reducer_books.js';
-import LoginReducer from './reducer_login.js';
-import SignupReducer from './reducer_signup.js';
+import authReducer from './reducer_auth.js';
+import ModalReducer from './reducer_modal';
 
 const rootReducer = combineReducers({
   search: SearchReducer,
-  login: LoginReducer,
-  signup: SignupReducer,
-  books: BooksReducer
+  books: BooksReducer,
+  auth: authReducer,
+  modal: ModalReducer
 });
 
 module.exports = rootReducer;

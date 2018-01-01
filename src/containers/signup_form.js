@@ -28,20 +28,27 @@ class SignupForm extends React.Component {
     }
   }
 
+  loginModal() {
+    this.props.loginModal();
+  }
+
   closeModal() {
     this.props.closeModal();
   }
 
   handleSubmit() {
-    const user = [{
+    const user = {
       email: findDOMNode(this.refs.email).value,
       username: findDOMNode(this.refs.username).value,
       firstname: findDOMNode(this.refs.firstname).value,
       lastname: findDOMNode(this.refs.lastname).value,
       password: findDOMNode(this.refs.password).value,
+      passwordCon: findDOMNode(this.refs.passwordCon).value,
       agreement: findDOMNode(this.refs.agreement).checked
-    }];
+    };
+    // console.log(user);
     this.props.signup(user);
+    this.props.closeModal();
   }
 
   render() {
@@ -75,18 +82,28 @@ class SignupForm extends React.Component {
               </div>
               <div className="row no-margin">
                 <div className="input-field col s12">
+                  <input id="passwordCon" type="password" className="validate" ref="passwordCon"></input>
+                  <label htmlFor="passwordCon">确认密码</label>
+                </div>
+              </div>
+              <div className="row no-margin">
+                <div className="input-field col s12">
                   <input id="email" type="email" className="validate" ref="email"></input>
                   <label htmlFor="email">邮箱地址</label>
                 </div>
               </div>
-              <p>
-                <input type="checkbox" id="agreements" defaultChecked="checked" ref="agreement" />
-                <label htmlFor="agreements">我同意注册条款</label>
-              </p>
-              <button type="button" className="btn waves-effect waves-light" onClick={this.handleSubmit.bind(this)}>注册</button>
-              <hr/>
-              <p>已有账号，请直接登录</p>
-              <button type="button" className="btn waves-effect waves-light red">登录</button>
+              <div className="row no-margin">
+                <div className="col s12">
+                  <p>
+                    <input type="checkbox" id="agreements" defaultChecked="checked" ref="agreement" />
+                    <label htmlFor="agreements">我同意注册条款</label>
+                  </p>
+                  <button type="button" className="btn waves-effect waves-light" onClick={this.handleSubmit.bind(this)}>注册</button>
+                  <hr/>
+                  <p>已有账号，请直接登录</p>
+                  <button type="button" className="btn waves-effect waves-light red" onClick={this.loginModal.bind(this)}>登录</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

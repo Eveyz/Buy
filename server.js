@@ -44,6 +44,7 @@ server.use('/users', usersAPI);
 // server.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 server.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 server.use('/js', express.static(__dirname + '/node_modules/materialize-css/dist/js'));
+server.use('/fonts', express.static(__dirname + '/node_modules/materialize-css/dist/fonts/roboto'));
 
 // server.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 server.use('/css', express.static(__dirname + '/node_modules/materialize-css/dist/css'));
